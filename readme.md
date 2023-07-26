@@ -23,3 +23,14 @@ https://playwright.dev/docs/running-tests#command-line
 uruchomienie generatora
 npx playwright codegen https://playwright.dev/
 
+
+--------
+definicje typów dla artillery ???
+https://www.npmjs.com/package/@types/artillery
+
+--------
+jakiś plugin do playwright:
+https://github.com/microsoft/playwright/discussions/11977
+https://www.linkedin.com/pulse/elevating-your-playwright-tests-plugin-tzur-paldi-phd/
+
+
