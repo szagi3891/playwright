@@ -25,3 +25,14 @@ test('get started link', async ({ page }) => {
   // Expects the URL to contain intro.
   await expect(page).toHaveURL(/.*intro/);
 });
+
+
+test('test wygenerowany', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+  await page.getByRole('link', { name: 'API', exact: true }).click();
+  await page.getByRole('link', { name: 'Electron', exact: true }).click();
+  await page.getByRole('heading', { name: 'MethodsDirect link to Methods' }).click();
+  await page.getByLabel('Direct link to Methods').click();
+  expect(page.url()).toContain('docs/api/class-electron#methods');
+});
+
