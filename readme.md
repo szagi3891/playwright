@@ -6,6 +6,10 @@ Playwright Test for VSCode
 odpalenie trybu graficznego za pomocą którego mozna uruchomic testy
 npx playwright test --ui
 
+Uruchamia testy z oknem przeglądarki
+npx playwright test --headed
+
+
 + działa filtrowanie
 
 
@@ -25,6 +29,10 @@ npx playwright codegen https://playwright.dev/
 
 
 --------
+Jakiś kursik:
+https://www.youtube.com/playlist?list=PLvFBbkSgL1u7Bco8ewGnWeZpjRH-bHC_7
+
+--------
 definicje typów dla artillery ???
 https://www.npmjs.com/package/@types/artillery
 
@@ -34,3 +42,6 @@ https://github.com/microsoft/playwright/discussions/11977
 https://www.linkedin.com/pulse/elevating-your-playwright-tests-plugin-tzur-paldi-phd/
 
 
+-------
+piaskownica do zabawy
+https://skleptest.pl/
