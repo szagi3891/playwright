@@ -1,14 +1,36 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Page, BrowserContext } from '@playwright/test';
 
-test('has title', async ({ page }) => {
+const timeout = (timeout: number): Promise<void> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, timeout);
+  });
+};
+
+const nowaKarta = async (context: BrowserContext): Promise<void> => {
+  // context.request.fetch('',)
+  const page2 = await context.newPage();
+  await page2.goto("https://playwright.dev/"); //https://www.programsbuzz.com/");
+};
+
+
+test('has title', async ({ page, context }) => {
   await page.goto('https://playwright.dev/');
+
+  for (let i = 0; i< 20; i++) {
+    nowaKarta(context);
+  }
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Playwright/);
 
-  const response = await fetch('https://dummyjson.com/products/1');
-  const responseJson = await response.json();
-  console.info('odpowiedź', responseJson);            
+  // const response = await fetch('https://dummyjson.com/products/1');
+  // const responseJson = await response.json();
+  // console.info('odpowiedź', responseJson);
+
+  await timeout(20000);
+  console.info("koniec testu");
 });
 
 test('get started link', async ({ page }) => {
