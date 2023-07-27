@@ -5,6 +5,10 @@ test('has title', async ({ page }) => {
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Playwright/);
+
+  const response = await fetch('https://dummyjson.com/products/1');
+  const responseJson = await response.json();
+  console.info('odpowiedź', responseJson);            
 });
 
 test('get started link', async ({ page }) => {
