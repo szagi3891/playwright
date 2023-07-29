@@ -51,3 +51,10 @@ https://www.linkedin.com/pulse/elevating-your-playwright-tests-plugin-tzur-paldi
 -------
 piaskownica do zabawy
 https://skleptest.pl/
+
+
+-----
+obserwować jak się to rozwinie
+https://playwright.dev/docs/api/class-websocket
+https://github.com/microsoft/playwright/issues/4488
+
