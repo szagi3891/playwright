@@ -27,6 +27,12 @@ https://playwright.dev/docs/running-tests#command-line
 uruchomienie generatora
 npx playwright codegen https://playwright.dev/
 
+mokowanie za pomocą har-a
+https://playwright.dev/docs/mock#mocking-with-har-files
+
+
+playwright mona w rust odpalać
+https://github.com/octaltree/playwright-rust
 
 --------
 Jakiś kursik:
