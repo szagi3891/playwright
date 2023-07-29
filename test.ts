@@ -16,7 +16,9 @@ const list = [{
     for (const browserType of list) {
         console.info('opdpalam przeglądarkę', browserType.name);
 
-        const browser = await browserType.browser.launch();
+        const browser = await browserType.browser.launch({
+            headless: false,
+        });
         const page = await browser.newPage();
 
         // const aaa = await browser.newContext();
@@ -27,6 +29,8 @@ const list = [{
         await page.screenshot({
             path: `screenshots/${browserType.name}.png`
         })
+
+        await page.pause();
 
         console.info('zamykam przeglądarkę', browserType.name);
         // page.close();
