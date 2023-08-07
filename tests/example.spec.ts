@@ -18,7 +18,7 @@ const nowaKarta = async (context: BrowserContext): Promise<void> => {
 test('has title', async ({ page, context }) => {
   await page.goto('https://playwright.dev/');
 
-  for (let i = 0; i< 20; i++) {
+  for (let i = 0; i < 1000; i++) {
     nowaKarta(context);
   }
 
