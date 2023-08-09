@@ -1,4 +1,4 @@
-import { test, expect, Page, BrowserContext } from '@playwright/test';
+import { test, expect, Page, BrowserContext, devices } from '@playwright/test';
 
 const timeout = (timeout: number): Promise<void> => {
   return new Promise((resolve) => {
@@ -64,7 +64,6 @@ test('test wygenerowany', async ({ page }) => {
   const aaa = page.mainFrame();
   const bbb = aaa.childFrames()[0];
 
-  
   console.info('aaa', aaa);
   console.info('bbb', bbb);
   console.info('koniec testu');
@@ -80,3 +79,35 @@ test('test iframe', async ({ page, browser }) => {
   expect(text).toBe('What\'s new in Playwright 1.35');
 });
 
+
+test('mistrz klawiatury', async ({ page }) => {
+
+  await page.goto('https://monkeytype.com/');
+  await page.getByLabel('Consent', { exact: true }).click();
+  await page.locator('.acceptAll').click();
+
+  const words = await page.locator('#words .word').all();
+  const doWpisania: Array<string> = [];
+  for (const word of words) {
+    const text = await word.textContent();
+    if (text === null) {
+      throw Error('Oczekiwano tekstu');
+    }
+    doWpisania.push(text);
+  }
+
+  for (const text of doWpisania) {
+    // const text = await word.textContent();
+
+    // if (text === null) {
+    //   throw Error('Oczekiwano tekstu');
+    // }
+
+    console.info('Wpisuję tekst', text);
+  
+    await page.locator('#typingTest').type(`${text} `);
+    await timeout(50);
+  }
+
+  await timeout(60000);
+});
