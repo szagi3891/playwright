@@ -61,5 +61,22 @@ test('test wygenerowany', async ({ page }) => {
   await page.getByLabel('Direct link to Methods').click();
   await page.pause();
   expect(page.url()).toContain('docs/api/class-electron#methods');
+  const aaa = page.mainFrame();
+  const bbb = aaa.childFrames()[0];
+
+  
+  console.info('aaa', aaa);
+  console.info('bbb', bbb);
+  console.info('koniec testu');
+});
+
+test('test iframe', async ({ page, browser }) => {
+  await page.goto('https://playwright.dev/');
+  await page.getByRole('link', { name: 'Community' }).click();
+  await page.getByRole('link', { name: 'Release Videos', exact: true }).click();
+  await page.getByRole('link', { name: 'Playwright v1.35' }).click();
+  await page.getByLabel('Watch Playwright 1.35').click();
+  const text = await page.frameLocator('iframe[title="Playwright 1.35"]').locator('.ytp-title-text').textContent();
+  expect(text).toBe('What\'s new in Playwright 1.35');
 });
 

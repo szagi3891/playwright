@@ -1,3 +1,16 @@
+Zalety:
+odpalanie kazdego testu w osobnym kontekście przeglądarki (izolacja testów)
+mozna taz kilka okien z innymi kontekstami uruchomić (np. strona oraz jakiś panel w drugim kontekście)
+https://playwright.dev/docs/browser-contexts
+cypress moze mieć z tym problemy
+https://docs.cypress.io/guides/core-concepts/test-isolation
+
+
+testowanie api wydaje się łatwe
+
+nagrywanie testu mozna bezpośrednio z VSC odpalić
+nagrywanie moze tez pisać w miejscu w kodzie w którym ma się kursor
+
 
 plugin do VSC
 Playwright Test for VSCode
