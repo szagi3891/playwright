@@ -14,7 +14,11 @@ nagrywanie moze tez pisać w miejscu w kodzie w którym ma się kursor
 odpalanie równoległe (dzielenie na shard)
 npx playwright test --shard 2/10
 
-
+merge-reports: usage
+1. Enable "blob" reporter in your config
+2. Upload blob reports to a single storage location
+3. Download & merge blob reports using
+  npx playwright merge-reports
 
 plugin do VSC
 Playwright Test for VSCode
