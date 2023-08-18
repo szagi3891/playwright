@@ -18,7 +18,7 @@ const nowaKarta = async (context: BrowserContext): Promise<void> => {
 test('has title', async ({ page, context }) => {
   await page.goto('https://playwright.dev/');
 
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < 5; i++) {
     nowaKarta(context);
   }
 
@@ -29,7 +29,7 @@ test('has title', async ({ page, context }) => {
   // const responseJson = await response.json();
   // console.info('odpowiedź', responseJson);
 
-  await timeout(20000);
+  await timeout(10000);
   console.info("koniec testu");
 });
 
@@ -42,6 +42,9 @@ test('get started link', async ({ page }) => {
 
   const contentType = await response.headerValue('content-type');
   expect(contentType).toBe('text/html; charset=utf-8');
+
+  const body: string = (await response.body()).toString();
+  //expect(body).toCoTam();
 
   expect(response.status()).toBe(200);
 
