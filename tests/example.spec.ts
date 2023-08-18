@@ -62,6 +62,11 @@ test('test wygenerowany', async ({ page }) => {
   await page.getByRole('link', { name: 'Electron', exact: true }).click();
   await page.getByRole('heading', { name: 'MethodsDirect link to Methods' }).click();
   await page.getByLabel('Direct link to Methods').click();
+
+  // const aaaa = page.getByLabel('Direct link to Methods');
+  // const bbbb = aaaa.getByLabel('Direct link to Methods');
+  // const cccc = bbbb.locator('adsa');
+
   await page.pause();
   expect(page.url()).toContain('docs/api/class-electron#methods');
   const aaa = page.mainFrame();

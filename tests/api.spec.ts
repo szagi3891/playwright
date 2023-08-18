@@ -39,7 +39,7 @@ const waitForAppStateReady = async (page: Page): Promise<void> => {
         await timeout(100);
     }
 
-    throw Error('Nie doczekano się na appState');
+    throw Error('Nie doczekano się na appState');
 };
 
 test('javascript', async ({ page }) => {
@@ -61,6 +61,19 @@ test('javascript', async ({ page }) => {
     const bbbb = await page.evaluate('$appState.env.envVariables.websocket_host_v2');
     console.info('bbbb', bbbb);
     expect(bbbb).toBe('wss://socket-star.prod.sherbetcloud.com/ws');
+
+    await page.locator('.CookiesPolicyWrapper button').click();
+    // await page.pause();
+    const quick = page.locator('[data-component="StarSportsLogo"]');  //.first();
+
+    // console.info('quick', (await quick.all()).length);
+    // await page.pause();
+
+
+    const value = await quick.getAttribute('class');
+    console.info('klasa', value);
+    // const all = await quick.all();
+    // console.info(`all.length = ${all.length}`);
 
     console.info('koniec testu');
     // expect(aaa).toBe(true);

@@ -11,6 +11,10 @@ testowanie api wydaje się łatwe
 nagrywanie testu mozna bezpośrednio z VSC odpalić
 nagrywanie moze tez pisać w miejscu w kodzie w którym ma się kursor
 
+odpalanie równoległe (dzielenie na shard)
+npx playwright test --shard 2/10
+
+
 
 plugin do VSC
 Playwright Test for VSCode
