@@ -75,6 +75,11 @@ test('javascript', async ({ page }) => {
     // const all = await quick.all();
     // console.info(`all.length = ${all.length}`);
 
+    
+    //TODO do sprawdzenia
+    //await page.waitForSelector('.loading-icon', { state: 'hidden' });
+
+
     console.info('koniec testu');
     // expect(aaa).toBe(true);
 });

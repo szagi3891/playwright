@@ -119,3 +119,34 @@ test('mistrz klawiatury', async ({ page }) => {
 
   await timeout(60000);
 });
+
+test('env', async () => {
+
+  console.info('zmienna środowiskowa', process.env.aaaa);
+
+  expect(true).toBe(true);
+});
+
+// uruchomienie ze zmienną środowiskową
+// aaaa=dupablada npx playwright test example.spec.ts:123 
+
+const getDomain = (url: string): string => {
+  const urlObject = new URL(url);
+  return urlObject.hostname;
+};
+
+test('cookie', async ({ page }) => {
+
+  await page.context().addCookies([{
+    // domain: 'vickers.bet',
+    domain: getDomain('https://vickers.bet/'),
+    path: '/',
+    name: 'newtrading',
+    value: 'true'
+  }]);
+
+  await page.goto('https://vickers.bet/');
+
+
+});
+
