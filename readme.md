@@ -24,6 +24,13 @@ plugin do VSC
 Playwright Test for VSCode
 
 
+odpalanie po tagu:
+npx playwright test --grep "TC333|TC222"
+
+
+Tryb graficzny wpiera watch-mode
+
+
 odpalenie trybu graficznego za pomocą którego mozna uruchomic testy
 npx playwright test --ui
 

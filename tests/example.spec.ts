@@ -135,7 +135,7 @@ const getDomain = (url: string): string => {
   return urlObject.hostname;
 };
 
-test('cookie', async ({ page }) => {
+test('TC222 cookie', async ({ page }) => {
 
   await page.context().addCookies([{
     // domain: 'vickers.bet',
