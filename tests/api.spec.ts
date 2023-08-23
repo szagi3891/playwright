@@ -1,4 +1,4 @@
-import { test, expect, Page, BrowserContext, devices } from '@playwright/test';
+import { test, expect, Page, /*BrowserContext, devices*/ } from '@playwright/test';
 import { timeout } from '../utils/timeout';
 
 test('TC333 has title', async ({ page, context, request }) => {
@@ -14,7 +14,7 @@ test('TC333 has title', async ({ page, context, request }) => {
     expect(response.status()).toBe(200);
     expect(headers['content-type']).toBe('application/json; charset=utf-8');
 
-    const body = JSON.parse((await response.body()).toString());
+    const body = await response.json();
     console.info('body', body);
 
     expect(body).toEqual({ is_new_trading: false });
