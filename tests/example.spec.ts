@@ -67,6 +67,7 @@ test('test wygenerowany', async ({ page }) => {
   // const bbbb = aaaa.getByLabel('Direct link to Methods');
   // const cccc = bbbb.locator('adsa');
 
+
   await page.pause();
   expect(page.url()).toContain('docs/api/class-electron#methods');
   const aaa = page.mainFrame();
@@ -87,66 +88,54 @@ test('test iframe', async ({ page, browser }) => {
   expect(text).toBe('What\'s new in Playwright 1.35');
 });
 
+const getActiveWord = async (page: Page): Promise<string> => {
+    const word = await page.locator('#words .word.active');
+    const content = await word.textContent();
+
+    if (content === null) {
+        throw Error('oczekiwano tekstu');
+    }
+
+    return content;
+};
 
 test('mistrz klawiatury', async ({ page }) => {
 
-  await page.goto('https://monkeytype.com/');
-  await page.getByLabel('Consent', { exact: true }).click();
-  await page.locator('.acceptAll').click();
+    await page.goto('https://monkeytype.com/');
+    await page.getByLabel('Consent', { exact: true }).click();
+    await page.locator('.acceptAll').click();
 
-  const words = await page.locator('#words .word').all();
-  const doWpisania: Array<string> = [];
-  for (const word of words) {
-    const text = await word.textContent();
-    if (text === null) {
-      throw Error('Oczekiwano tekstu');
+    for (let i=0; i < 1000; i++) {
+        const word = await getActiveWord(page);
+        await page.locator('#typingTest').type(`${word} `);
     }
-    doWpisania.push(text);
-  }
-
-  for (const text of doWpisania) {
-    // const text = await word.textContent();
-
-    // if (text === null) {
-    //   throw Error('Oczekiwano tekstu');
-    // }
-
-    console.info('Wpisuję tekst', text);
-  
-    await page.locator('#typingTest').type(`${text} `);
-    await timeout(50);
-  }
-
-  await timeout(60000);
 });
 
 test('env', async () => {
 
-  console.info('zmienna środowiskowa', process.env.aaaa);
+    console.info('zmienna środowiskowa', process.env.aaaa);
 
-  expect(true).toBe(true);
+    expect(true).toBe(true);
 });
 
 // uruchomienie ze zmienną środowiskową
 // aaaa=dupablada npx playwright test example.spec.ts:123 
 
 const getDomain = (url: string): string => {
-  const urlObject = new URL(url);
-  return urlObject.hostname;
+    const urlObject = new URL(url);
+    return urlObject.hostname;
 };
 
 test('TC222 cookie', async ({ page }) => {
 
-  await page.context().addCookies([{
-    // domain: 'vickers.bet',
-    domain: getDomain('https://vickers.bet/'),
-    path: '/',
-    name: 'newtrading',
-    value: 'true'
-  }]);
+    await page.context().addCookies([{
+        // domain: 'vickers.bet',
+        domain: getDomain('https://vickers.bet/'),
+        path: '/',
+        name: 'newtrading',
+        value: 'true'
+    }]);
 
-  await page.goto('https://vickers.bet/');
-
-
+    await page.goto('https://vickers.bet/');
 });
 

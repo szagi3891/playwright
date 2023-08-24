@@ -1,4 +1,4 @@
-import { test, expect, Page, /*BrowserContext, devices*/ } from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
 import { timeout } from '../utils/timeout';
 
 test('TC333 has title', async ({ page, context, request }) => {
